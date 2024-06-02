@@ -14,7 +14,7 @@ ohpm install @ohos/axios @abner/log
 
 在 src/main/ets/entryability 目录的`EntryAbility.ets`文件中进行初始化配置
 
-```ts
+```tsx
 import { Log } from "@abner/log";
 
 Log.init({
@@ -33,7 +33,7 @@ src/main/ets 目录下新建`utils`文件夹，并新建`Request.ets`文件。
 
 调用 axios 的 create 方法创建实例，配置请求的基地址，响应时间，请求头等。
 
-```ts
+```tsx
 import axios from "@ohos/axios";
 
 export const axiosInstance = axios.create({
@@ -46,7 +46,7 @@ export const axiosInstance = axios.create({
 
 在请求处理前进行拦截，作用主要有设置请求头、统一处理请求路径和参数等。
 
-```ts
+```tsx
 import { Log } from "@abner/log";
 import { AxiosError, InternalAxiosRequestConfig } from "@ohos/axios";
 
@@ -80,7 +80,7 @@ axiosInstance.interceptors.request.use(
 
 对于成功结果，简化并返回。
 
-```ts
+```tsx
 import { AxiosResponse } from '@ohos/axios'
 import { promptAction } from '@kit.ArkUI';
 
@@ -114,7 +114,7 @@ axiosInstance.interceptors.response.use((response: AxiosResponse) => {
 
 `DataParams` 就是请求时的 data 泛型
 
-```ts
+```tsx
 import { AxiosRequestConfig } from "@ohos/axios";
 
 export function request<DataModel = null, DataParams = null>(
@@ -128,7 +128,7 @@ export function request<DataModel = null, DataParams = null>(
 
 在其他页面中使用
 
-```ts
+```tsx
 import { request } from "../utils/Request";
 
 interface User {
